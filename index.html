@@ -15,22 +15,26 @@
 
 <body>
     <div class="md:container md:mx-auto">
-        <div class="flex flex-wrap justify-center mt-8">
+        <div class="flex flex-wrap justify-center mt-0 md:mt-8">
             <div>
-                <img src="portfolio/sign-up-form-button-graphic-concept.jpg" class="w-96 h-full" alt="">
+                <img src="portfolio/sign-up-form-button-graphic-concept.jpg" class="w-full md:w-96 h-full" alt="">
             </div>
 
-            <div class="mt-8 md:mt-0">
+            <div class="mt-2 md:mt-0">
 
                 <form class="bg-white rounded px-8 pt-6 pb-8 mb-4">
+                    <div class="ml-24 md:ml-32">
                     Already have an account?<button
-                        class="ml-8 w-24 h-8 text-gray-500 font-bold border border-gray rounded-full">
+                        class="mt-2 md:mt-0 ml-8 w-24 h-8 text-purple-700 md:text-gray-500 font-bold border border-gray rounded-full">
                         SIGN IN
-                    </button> <br>
-                    <small>Register your account</small>
+                    </button> 
+                    </div>
+                    <br>
+                    <strong>Welcome to FOCUS</strong> <br>
+                    <small class="text-red-500 md:text-black-300">Register your account</small>
 
                     <div class="mb-4 mt-8">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                        <label class="block text-blue-500 md:text-gray-700 text-sm font-bold mb-2" for="username">
                             Name
                         </label>
                         <input
@@ -40,7 +44,7 @@
                         <p id="nomUtilisateurError" class="text-red-500 text-xs italic"></p>
                     </div>
                     <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                        <label class="block text-blue-500 md:text-gray-700 text-sm font-bold mb-2" for="username">
                             E-mail
                         </label>
                         <input
@@ -50,7 +54,7 @@
                         <p id="messageEmailError" class="text-red-500 text-xs italic"></p>
                     </div>
                     <div class="">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                        <label class="block text-blue-500 md:text-gray-700 text-sm font-bold mb-2" for="password">
                             Password
                         </label>
                         <input
@@ -59,7 +63,7 @@
 
                     </div>
                     <div class="mb-6">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                        <label class="block text-blue-500 md:text-gray-700 text-sm font-bold mb-2" for="password">
                             Confirm password
                         </label>
                         <input
@@ -68,7 +72,7 @@
                         <p id="confirmation" class="text-green-500 text-xs italic"></p>
                         <p id="errorPassword" class="text-red-500 text-xs italic"></p>
                     </div>
-                    <div class="flex items-center justify-between">
+                    <div class="flex items-center">
                         <button
                             class="bg-purple-700 w-36 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
                             type="button" onclick="login()">
@@ -77,9 +81,9 @@
 
                     </div>
                 </form>
-                <div class="ml-8 flex">
+                <div class="ml-8 flex -mt-6 md:-mt-0">
                     <div>
-                        <p class=" text-gray-500 text-xs  ">
+                        <p class="text-gray-500 text-xs mb-4 md:mb-0  ">
                             Create account width
 
                         </p>
@@ -119,7 +123,7 @@
             var motDePasseDeux = document.getElementById("password-2").value;
             var correctPassword = document.getElementById("confirmation")
             var erreurPassword = document.getElementById("errorPassword")
-            // var nomError = document.getElementById("nomUtilisateurError")
+            
 
             //condition  
             if (saisie.includes("@gmail.com") && (nom.length <= 64) ||
