@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="tailwind.css" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto&display=swap" rel="stylesheet">
+    <title>LOGIN</title>
+</head>
+
+<body>
+    <div class="md:container md:mx-auto">
+        <div class="flex flex-wrap justify-center mt-8">
+            <div>
+                <img src="portfolio/sign-up-form-button-graphic-concept.jpg" class="w-96 h-full" alt="">
+            </div>
+
+            <div class="mt-8 md:mt-0">
+
+                <form class="bg-white rounded px-8 pt-6 pb-8 mb-4">
+                    Already have an account?<button
+                        class="ml-8 w-24 h-8 text-gray-500 font-bold border border-gray rounded-full">
+                        SIGN IN
+                    </button> <br>
+                    <small>Register your account</small>
+
+                    <div class="mb-4 mt-8">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                            Name
+                        </label>
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-purple-700"
+                            id="name" type="text" placeholder="Ch">
+                        <p id="nomUtilisateur" class="text-green-500 text-xs italic"></p>
+                        <p id="nomUtilisateurError" class="text-red-500 text-xs italic"></p>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                            E-mail
+                        </label>
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-purple-700"
+                            id="email" type="email" placeholder="focus001@gmail.com">
+                        <p id="messageEmail" class="text-green-500 text-xs italic"></p>
+                        <p id="messageEmailError" class="text-red-500 text-xs italic"></p>
+                    </div>
+                    <div class="">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                            Password
+                        </label>
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:border-purple-700"
+                            id="password-1" type="password" placeholder="64- characteres">
+
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                            Confirm password
+                        </label>
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:border-purple-700"
+                            id="password-2" type="password" placeholder="64- characteres">
+                        <p id="confirmation" class="text-green-500 text-xs italic"></p>
+                        <p id="errorPassword" class="text-red-500 text-xs italic"></p>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <button
+                            class="bg-purple-700 w-36 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
+                            type="button" onclick="login()">
+                            Login
+                        </button>
+
+                    </div>
+                </form>
+                <div class="ml-8 flex">
+                    <div>
+                        <p class=" text-gray-500 text-xs  ">
+                            Create account width
+
+                        </p>
+                    </div>
+                    <div>
+                        <i style="background-color: #3B5998;"
+                            class="flex items-center justify-center h-8 w-8 -mt-2 mx-1 rounded-full fab fill-current text-white text-xl fa-facebook-f"></i>
+
+                    </div>
+                    <div>
+                        <i style="background-color: gray; border: 1px solid;"
+                            class="flex items-center justify-center h-8 w-8 -mt-2 mx-1 rounded-full fab fill-current text-white text-xl fab fa-linkedin"></i>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <script>
+
+        function login() {
+
+            //recuperation email
+            var saisie = document.getElementById("email").value;
+            var valide = document.getElementById("messageEmail")
+            var invalide = document.getElementById("messageEmailError")
+
+            //recuperation nom
+            var nom = document.getElementById("name").value;
+            var nomU = document.getElementById("nomUtilisateur")
+            var nomError = document.getElementById("nomUtilisateurError")
+
+            //recuperation mot de passe
+            var motDePasseUn = document.getElementById("password-1").value;
+            var motDePasseDeux = document.getElementById("password-2").value;
+            var correctPassword = document.getElementById("confirmation")
+            var erreurPassword = document.getElementById("errorPassword")
+            // var nomError = document.getElementById("nomUtilisateurError")
+
+            //condition  
+            if (saisie.includes("@gmail.com") && (nom.length <= 64) ||
+                (saisie.includes("@hotmail.fr") && nom.length <= 64) ||
+                (saisie.includes("@yahoo.fr") && nom.length <= 64) ||
+                (saisie.includes("@outlook.fr") && nom.length <= 64)) {
+                valide.textContent = "adresse e-mail valide"
+                nomU.textContent = "Nom correcte"
+
+            }
+            else if (saisie.includes("@gmail.com") && (nom.length > 64) ||
+                (saisie.includes("@hotmail.fr") && nom.length > 64) ||
+                (saisie.includes("@yahoo.fr") && nom.length > 64) ||
+                (saisie.includes("@outlook.fr") && nom.length > 64)) {
+                valide.textContent = "adresse e-mail valide"
+                nomError.textContent = "Erreur ! Le nom doit contenir au plus 64 caractères"
+            }
+            else if (!saisie.includes("@gmail.com") && (nom.length <= 64) ||
+                (!saisie.includes("@hotmail.fr") && nom.length <= 64) ||
+                (!saisie.includes("@yahoo.fr") && nom.length <= 64) ||
+                (!saisie.includes("@outlook.fr") && nom.length <= 64)) {
+                invalide.textContent = "adresse e-mail n'est pas valide"
+                nomU.textContent = "Nom correcte"
+            }
+            else if (!saisie.includes("@gmail.com") && (nom.length > 64) ||
+                (!saisie.includes("@hotmail.fr") && nom.length > 64) ||
+                (!saisie.includes("@yahoo.fr") && nom.length > 64) ||
+                (!saisie.includes("@outlook.fr") && nom.length > 64)) {
+                invalide.textContent = "adresse e-mail n'est pas valide"
+                nomError.textContent = "Erreur ! Le nom doit contenir au plus 64 caractères"
+            }
+            if (motDePasseUn === motDePasseDeux) {
+                correctPassword.textContent = "Mot de passe identiques"
+            }
+            else {
+                erreurPassword.textContent = "Tu joues avec moi ? Mot de passe pas identiques"
+            }
+
+        }
+    </script>
+</body>
+
+</html>
